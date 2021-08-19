@@ -1,11 +1,15 @@
-import { ThemeProvider } from 'next-themes'
+import '../styles/index.css'
+import {ThemeProvider} from 'next-themes'
+import * as React from 'react'
+import Layout from '../components/Layout'
 
-function MyApp({ Component, pageProps }) {
+// This default export is required in a new `pages/_app.js` file.
+export default function MyApp({Component, pageProps}) {
   return (
     <ThemeProvider attribute="class">
-      <Component {...pageProps} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </ThemeProvider>
   )
 }
-
-export default MyApp
